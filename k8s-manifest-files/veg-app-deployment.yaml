@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vegetable-deployment
-  namespace: bhagwat-ns
+  name: omkar-deployment
+  namespace: omkar-ns
 
 spec:
   replicas: 5
@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: vegetable
-          image: bhagwat07/vegetable-app:v2.1.0
+          image: omkartakalkar/vegetable-app:v2.0.0
           ports:
             - containerPort: 3000
           env:

@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: mongodb-deployment
-  namespace: bhagwat-ns
+  namespace: omkar-ns
 spec:
   replicas: 4
   serviceName: "mongodb-svc"

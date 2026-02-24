@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name:  vegetable-service
-  namespace: bhagwat-ns
+  namespace: omkar-ns
 spec:
   type: LoadBalancer
   selector:
