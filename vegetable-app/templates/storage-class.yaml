@@ -1,7 +1,7 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: {{ .Release.Name }}-storageClass
+  name: {{ .Release.Name }}-storageclass
   namespace: {{ .Values.namespace }} 
 provisioner: {{ .Values.StorageClass.provisioner }}
 parameters:
