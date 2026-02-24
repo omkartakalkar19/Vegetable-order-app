@@ -12,4 +12,4 @@ spec:
   resources:
     requests:
       storage: {{ .Values.pvc.size }}  # the amount of storage requested by the PVC
-  storageClassName: {{ .Release.Name }}-storageClass  # the name of the StorageClass to use for dynamic provisioning
+  storageClassName: {{ .Release.Name }}-storageclass  # the name of the StorageClass to use for dynamic provisioning
