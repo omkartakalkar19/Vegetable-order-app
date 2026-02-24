@@ -1,0 +1,53 @@
+namespace: omkar-ns
+
+deployment:
+  labels:
+    app: vegetable
+    replicas: 5
+    name: vegetable
+    repository: omkartakalkar/vegetable-app
+    tag: v2.0.0
+    containerPort: 3000
+
+configMap:
+  MONGO_URL: "mongodb://mongodb-svc:27017/vegetable_order_app"
+  MONGO_INITDB_DATABASE: "vegetable_order_app"
+
+service:
+  type: LoadBalancer
+  app: vegetable
+  port: 80
+  targetPort: 3000
+  protocol: TCP
+
+mongodb:
+  replicas: 4
+  serviceName: mongodb-svc
+  app: mongodb
+  containerName: mongodb-container
+  repository: mongo
+  tag: latest
+  port: 27017
+  volume:
+    name: mongo-data
+    mountPath: /data/db
+    accessMode: ReadWriteOnce
+    size: 1Gi
+
+StorageClass:
+  provisioner: ebs.csi.aws.com
+  type: gp3  
+  reclaimPolicy: Retain 
+  volumeBindingMode: WaitForFirstConsumer
+
+mongodb_service:
+  app: mongodb
+  port: 27017
+  targetPort: 27017
+  protocol: TCP
+  clusterIP: None
+
+pvc:
+  accessMode: ReadWriteOnce
+  size: 2Gi
+
