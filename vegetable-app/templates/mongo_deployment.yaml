@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: {{ .Release.Name }}-statefulSet
+  name: {{ .Release.Name }}-statefulset
   namespace: {{ .Values.namespace }}
 spec:
   replicas: {{ .Values.mongodb.replicas }}
@@ -26,7 +26,7 @@ spec:
             - name: MONGO_INITDB_DATABASE
               valueFrom:
                 configMapKeyRef:
-                  name: {{ .Release.Name }}-configMap
+                  name: {{ .Release.Name }}-configmap
                   key: MONGO_INITDB_DATABASE
 
   volumeClaimTemplates:
@@ -35,7 +35,7 @@ spec:
       spec:
         accessModes:
           - {{ .Values.mongodb.volume.accessMode }}
-        storageClassName: {{ .Release.Name }}-storageClass
+        storageClassName: {{ .Release.Name }}-storageclass
         resources:
           requests:
             storage: {{ .Values.mongodb.volume.size }}
