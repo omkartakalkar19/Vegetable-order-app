@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-deployment
+  namespace: {{ .Values.namespace }}
+
+spec:
+  replicas: {{ .Values.deployment.labels.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.deployment.labels.app }}
+  
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.deployment.labels.app }}
+
+    spec:
+      containers:
+        - name: {{ .Values.deployment.labels.name }}
+          image: "{{ .Values.deployment.labels.repository }}:{{ .Values.deployment.labels.tag }}"
+          ports:
+            - containerPort: {{ .Values.deployment.labels.containerPort }}
+          env:
+            - name: MONGODB_URI
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Release.Name }}-configMap
+                  key: MONGO_URL
