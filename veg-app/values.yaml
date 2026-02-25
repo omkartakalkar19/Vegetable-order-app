@@ -10,7 +10,7 @@ deployment:
 
 image:
   repository: omkartakalkar/vegetable-app
-  tag: v2.0.0
+  tag: v3.0.0
 
 # ConfigMap: veg-config
 configMap:
