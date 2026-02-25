@@ -34,7 +34,7 @@ spec:
         name: {{ .Values.mongodb.volume.name }}
       spec:
         accessModes:
-          - {{ .Values.mongodb.volume.accessMode }}
+          - {{ .Values.mongodb.volume.accessModes }}
         storageClassName: {{ .Release.Name }}-storageclass
         resources:
           requests:
