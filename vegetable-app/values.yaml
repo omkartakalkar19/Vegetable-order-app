@@ -31,7 +31,8 @@ mongodb:
   volume:
     name: mongo-data
     mountPath: /data/db
-    accessMode: ReadWriteOnce
+    accessModes:
+      - ReadWriteOnce
     size: 1Gi
 
 StorageClass:
