@@ -4,5 +4,5 @@ metadata:
   name: {{ .Release.Name }}-configmap
   namespace: {{ .Values.namespace }}
 data:
-  MONGO_URL: {{ .Values.configMap.MONGO_URL }}
-  MONGO_INITDB_DATABASE: {{ .Values.configMap.MONGO_INITDB_DATABASE }}
+  MONGO_URI: "{{ .Values.configMap.MONGO_URL }}"
+  MONGO_INITDB_DATABASE: "{{ .Values.configMap.MONGO_INITDB_DATABASE }}"

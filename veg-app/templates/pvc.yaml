@@ -5,7 +5,7 @@ metadata:
   namespace: {{ .Values.namespace }}
 spec:
   accessModes: 
-    - {{ .Values.mongodb.volume.accessModes }} 
+    - ReadWriteOnce
    # How the volume will be accessed by the pods
    #- ReadWriteOnce # one node can read/write, multiple nodes can read
    # - ReadOnlyMany  # multiple nodes can read, but only one node can write
