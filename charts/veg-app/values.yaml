@@ -1,7 +1,7 @@
 namespace: omkar-ns
 
 # Veg Deployment
-replicas: 5
+replicas: 4
 deployment:
   labels:
     app: vegetable
