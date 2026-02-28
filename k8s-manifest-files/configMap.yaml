@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: veg-config
-  namespace: omkar-ns
-data:
-  MONGO_URL: "mongodb://mongodb-svc:27017/vegetable_order_app"
-  MONGO_INITDB_DATABASE: "vegetable_order_app"
