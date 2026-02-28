@@ -14,7 +14,7 @@ image:
 
 # ConfigMap: veg-config
 configMap:
-  MONGO_URL: "mongodb://veg-release-mongodb-svc:27017/vegetable_order_app"
+  MONGO_URL: "mongodb://vegetable-app-mongodb-svc:27017/vegetable_order_app"
   MONGO_INITDB_DATABASE: "vegetable_order_app"
 
 # Veg Service
